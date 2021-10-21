@@ -62,8 +62,9 @@ class _HistoryOrders extends State<HistoryOrders> {
 
     return new Scaffold(
       appBar: new AppBar(
-        elevation: 1.1,
-        title: new Text('History Order', style: new TextStyle(fontWeight: FontWeight.w600),),
+        elevation: 0.5,
+        centerTitle: true,
+        title: new Text('History Order',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
       body: new Container(
         child: new Stack(
@@ -160,7 +161,7 @@ class _HistoryOrders extends State<HistoryOrders> {
                           title: new Stack(
                             children: <Widget>[
                               new Container(
-                                alignment: Alignment.center,
+                                // alignment: Alignment.center,
                                 child: new Text(dataJson == null ? '' : dataJson[i]['Date']+', '+dataJson[i]['Time'],
                                   style: new TextStyle(color: Colors.grey),
                                 ),

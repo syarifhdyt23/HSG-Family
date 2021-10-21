@@ -53,8 +53,9 @@ class _ListSosMed extends State<ListSosMed> {
     return new Scaffold(
       appBar: new AppBar(
         elevation: 0.0,
+        centerTitle: true,
         backgroundColor: new HexColor("#2771A3"),
-        title: new Text('Social Media'),
+        title: new Text('Social Media',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
 
       backgroundColor: Colors.grey[200],

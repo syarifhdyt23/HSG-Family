@@ -69,7 +69,7 @@ class _RequestEmployee extends State<RequestEmployee> {
         elevation: 1.1,
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: new Text('Request Employe', style: new TextStyle(fontWeight: FontWeight.w600),),
+        title: new Text('Request Employe',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
         // actions: [
         //   new IconButton(
         //       icon: new Icon(Icons.add),

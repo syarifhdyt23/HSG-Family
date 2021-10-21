@@ -69,7 +69,8 @@ class _RequestAttendance extends State<RequestAttendance> {
     return new Scaffold(
       appBar: new AppBar(
         elevation: 1.1,
-        title: new Text('Form Request Attendance'),
+        centerTitle: true,
+        title: new Text('Form Request Attendance',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
       backgroundColor: Colors.white,
       body: new ListView(

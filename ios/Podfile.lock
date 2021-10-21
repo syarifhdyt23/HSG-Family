@@ -4,6 +4,20 @@ PODS:
   - Flutter (1.0.0)
   - flutter_keyboard_visibility (0.0.1):
     - Flutter
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
+  - image_picker (0.0.1):
+    - Flutter
+  - open_file (0.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - pdf_image_renderer (0.0.1):
+    - Flutter
+  - printing (0.0.1):
+    - Flutter
+  - Toast (4.0.0)
   - url_launcher (0.0.1):
     - Flutter
   - webview_flutter (0.0.1):
@@ -13,8 +27,18 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - open_file (from `.symlinks/plugins/open_file/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - pdf_image_renderer (from `.symlinks/plugins/pdf_image_renderer/ios`)
+  - printing (from `.symlinks/plugins/printing/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Toast
 
 EXTERNAL SOURCES:
   device_info:
@@ -23,6 +47,18 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_keyboard_visibility:
     :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
+  open_file:
+    :path: ".symlinks/plugins/open_file/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  pdf_image_renderer:
+    :path: ".symlinks/plugins/pdf_image_renderer/ios"
+  printing:
+    :path: ".symlinks/plugins/printing/ios"
   url_launcher:
     :path: ".symlinks/plugins/url_launcher/ios"
   webview_flutter:
@@ -32,6 +68,13 @@ SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
+  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
+  open_file: 02eb5cb6b21264bd3a696876f5afbfb7ca4f4b7d
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  pdf_image_renderer: dc5cf3f09a47e742ed9438adda12d2f386993bc6
+  printing: 5ec249946ebbd51cead5ed9b0b48113bb5141bcf
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   webview_flutter: 3603125dfd3bcbc9d8d418c3f80aeecf331c068b
 

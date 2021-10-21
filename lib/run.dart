@@ -16,11 +16,11 @@ import 'info.dart';
 
 class Run extends StatefulWidget {
 
-  Run({this.empId, this.empname});
+  Run({this.empId, this.empname, this.flag});
 
-  final String empId, empname;
+  final String empId, empname, flag;
 
-  _Run createState() => _Run(empId: empId, empname: empname);
+  _Run createState() => _Run(empId: empId, empname: empname, message: flag);
 }
 
 class _Run extends State<Run> {
@@ -36,13 +36,13 @@ class _Run extends State<Run> {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   List<Widget> pageList = List<Widget>();
 
-  _Run({this.empId, this.empname});
+  _Run({this.empId, this.empname, this.message});
 
   @override
   void initState() {
     // TODO: implement initState
     pageList.add(new Home(empId: empId,));
-    pageList.add(new Friend(empid: empId,));
+    pageList.add(new Friend(empid: empId));
     pageList.add(new RequestEmployee(empid: empId, empname: empname));
     //pageList.add(new Absensi(empid: empId,));
 

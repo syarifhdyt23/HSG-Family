@@ -24,11 +24,13 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: Colors.black,
         accentColor: Colors.black.withOpacity(.8),
+
         appBarTheme: new AppBarTheme(
           color: Colors.white,
-          textTheme: new TextTheme(title: new TextStyle(color: Colors.black, fontSize: 19)),
+          titleTextStyle: new TextStyle(color: Colors.black, fontSize: 17),
           iconTheme: new IconThemeData(color: Colors.black)
         ),
+
         inputDecorationTheme: const InputDecorationTheme(
           labelStyle: TextStyle(color: Colors.black),
           hintStyle: TextStyle(color: Colors.grey),
@@ -95,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       body: message == null ? new SplashScreen() :
-      message != '1' ? new Run(empId: message, empname: dataJson[0]['emp_name'],) : new Login(),// This trailing comma makes auto-formatting nicer for build methods.
+      message != '1' ? new Run(empId: message, empname: dataJson[0]['emp_name'], flag: message,) : new Login(),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

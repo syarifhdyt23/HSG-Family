@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hsgfamily/domain.dart';
+import 'package:hsgfamily/employe/kritiksaran.dart';
 import 'package:hsgfamily/employe/peraturan.dart';
 import 'package:hsgfamily/employe/suratperingatan.dart';
 import 'package:hsgfamily/info.dart';
@@ -12,18 +13,18 @@ import 'dart:ui';
 
 class EmpProfile extends StatefulWidget {
 
-  final String gender, empName, empId;
+  final String gender, empName, empId, flag;
   final bool edit;
 
-  EmpProfile({this.gender, this.empName, this.empId, this.edit});
+  EmpProfile({this.gender, this.empName, this.empId, this.edit, this.flag});
 
-  _EmpProfile createState() => new _EmpProfile(gender: this.gender, empName: this.empName, empId: this.empId, edit: this.edit);
+  _EmpProfile createState() => new _EmpProfile(gender: this.gender, empName: this.empName, empId: this.empId, edit: this.edit, flag: flag);
 }
 
 class _EmpProfile extends State<EmpProfile> {
 
   List dataJson, totalJson;
-  String gender, empName, message, empId, msgTotal, bulan;
+  String gender, empName, message, empId, msgTotal, bulan, flag;
   TextEditingController textHp = new TextEditingController();
   TextEditingController textEmail = new TextEditingController();
   bool edit;
@@ -32,7 +33,7 @@ class _EmpProfile extends State<EmpProfile> {
   Domain domain = new Domain();
   Info info = new Info();
 
-  _EmpProfile({this.gender, this.empName, this.empId, this.edit});
+  _EmpProfile({this.gender, this.empName, this.empId, this.edit, this.flag});
 
   Future<void> getData() async {
     http.Response hasil = await http.get(
@@ -46,8 +47,8 @@ class _EmpProfile extends State<EmpProfile> {
       message = dataJson == null ? '1' : dataJson[0]['emp_id'];
 
       setState(() {
-        textHp.text = dataJson[0]['hp'];
-        textEmail.text = dataJson[0]['email'];
+        textHp.text = flag != empId ? dataJson[0]['hp'] : '******';
+        textEmail.text = flag != empId ? dataJson[0]['email'] : '******';
       });
     }
   }
@@ -89,7 +90,8 @@ class _EmpProfile extends State<EmpProfile> {
     return new Scaffold(
       appBar: new AppBar(
         elevation: 0,
-        title: new Text('Profile', style: new TextStyle(fontWeight: FontWeight.w600),),
+        centerTitle: true,
+        title: new Text('Profile',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
 
       backgroundColor: Colors.white,
@@ -209,6 +211,8 @@ class _EmpProfile extends State<EmpProfile> {
                       ),
 
                       new InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: (){
                           Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new SuratPeringatan(empId: empId, empName: empName,)));
                         },
@@ -234,25 +238,51 @@ class _EmpProfile extends State<EmpProfile> {
                   ),
                 ),
 
-                new Container(
-                  height: 45,
-                  margin: const EdgeInsets.only(top: 25),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey[300]),
-                      borderRadius: BorderRadius.all(Radius.circular(4))
-                  ),
-                  child: new FlatButton(
-                    onPressed: (){
-                      if(Platform.isAndroid) {
-                        //info.openURL(context, 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf');
-                      } else {
-                        Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new Peraturan(title: 'Peraturan', linkPdf: 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf',)));
-                      }
-                    },
-                    child: new Text('Ketentuan Absen', style: new TextStyle(fontSize: 16),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    new Container(
+                      height: 45,
+                      margin: const EdgeInsets.only(top: 25),
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.grey[300]),
+                          borderRadius: BorderRadius.all(Radius.circular(4))
+                      ),
+                      child: new FlatButton(
+                        onPressed: (){
+                          if(Platform.isAndroid) {
+                            info.openURL(context, 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf');
+                          } else {
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new Peraturan(title: 'Ketentuan Absen',linkPdf: 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf',)));
+                          }
+                        },
+                        child: new Text('Ketentuan Absen', style: new TextStyle(fontSize: 16),),
 
-                  ),
-                ),
+                      ),
+                    ),
+                    new Padding(
+                        padding: EdgeInsets.only(left: 10)
+                    ),
+                    new Container(
+                      height: 45,
+                      margin: const EdgeInsets.only(top: 25),
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Colors.red),
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                        color: Colors.red
+                      ),
+                      child: new FlatButton(
+                        onPressed: (){
+                          if(flag != empId) {
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new KritikSaran(empId: empId,)));
+                          }
+                        },
+                        child: new Text('Kritik & Keluhan', style: new TextStyle(fontSize: 16, color: Colors.white),),
+
+                      ),
+                    ),
+                  ],
+                )
               ],
             )
         )

@@ -6,14 +6,13 @@ import '../loading.dart';
 class Peraturan extends StatefulWidget {
   final String linkPdf, title;
 
-  const Peraturan({Key key, this.linkPdf, this.title}) : super(key: key);
+  Peraturan({Key key, this.linkPdf, this.title}) : super(key: key);
 
   _Peraturan createState() => new _Peraturan(linkPdf: linkPdf, title: title);
 }
 
 class _Peraturan extends State<Peraturan> {
 
-  String message = 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf';
   bool isLoading = true;
   String linkPdf, title;
   WebViewController _webViewController;
@@ -25,8 +24,9 @@ class _Peraturan extends State<Peraturan> {
     // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
-        elevation: 1.1,
-        title: new Text(title, style: new TextStyle(fontWeight: FontWeight.w600),),
+        elevation: 0.5,
+        centerTitle: true,
+        title: new Text(title,style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
 
       body: new Stack(

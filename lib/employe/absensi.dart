@@ -102,7 +102,7 @@ class _Absensi extends State< Absensi> {
         centerTitle: true,
         title: new Column(
           children: [
-            new Text('Absensi', style: new TextStyle(fontWeight: FontWeight.w600),),
+            new Text('Absensi',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
             new Container(
               margin: const EdgeInsets.only(top: 5),
               child: new Text(bulan+', '+now.year.toString(), style: new TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),),
@@ -225,7 +225,7 @@ class _Absensi extends State< Absensi> {
                           if(Platform.isAndroid) {
                             info.openURL(context, 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf');
                           } else {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new Peraturan()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new Peraturan(title: 'Ketentuan Absen',linkPdf: 'http://103.106.78.106:81/hsgfamily/ketentuan.pdf',)));
                           }
                         },
                         child: new Text('Ketentuan Absen', style: new TextStyle(fontSize: 16),),
@@ -309,7 +309,7 @@ class _Absensi extends State< Absensi> {
                 ),
 
                 new Container(
-                  height: 350,
+                  height: 344,
                   margin: const EdgeInsets.only(top: 10),
                   child: new ListView.builder(
                     itemCount: monthJson.length,

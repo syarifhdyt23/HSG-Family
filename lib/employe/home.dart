@@ -69,10 +69,10 @@ class _Home extends State<Home> {
 
     return new Scaffold(
         appBar: new AppBar(
-          elevation: 1.1,
+          elevation: 0.5,
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: new Text('HSG Family', style: new TextStyle(fontWeight: FontWeight.w600),),
+          title: new Text('HSG Family', style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
         ),
         backgroundColor: HexColor("#F2F2F4"),
         body: message == null
@@ -87,7 +87,7 @@ class _Home extends State<Home> {
                   child: new ListView(
                     children: <Widget>[
                       new Container(
-                        height: 215,
+                        height: 190,
                         margin: const EdgeInsets.only(
                           top: 5.0,
                         ),

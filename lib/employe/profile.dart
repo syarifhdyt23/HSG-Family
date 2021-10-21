@@ -54,7 +54,7 @@ class _Profile extends State<Profile> {
 
     return new Container(
         width: size.width,
-        height: 215,
+        height: 135,
         margin: const EdgeInsets.only(right: 15, left: 10),
         decoration: new BoxDecoration(
           //boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5.0)],
@@ -97,37 +97,6 @@ class _Profile extends State<Profile> {
                 child: new Column(
                     children: [
                       new Container(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        child: new InkWell(
-                          onTap: (){
-                            // Navigator.push(
-                            //     context,
-                            //     new MaterialPageRoute(
-                            //         builder: (context) => new HistoryOrders(
-                            //           empId: empId,
-                            //           total: bonCafe,
-                            //           empname: empName,
-                            //         )));
-                          },
-
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              new Container(
-                                margin: const EdgeInsets.only(left: 23),
-                                child: new Text('Reward :', style: new TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w400),),
-                              ),
-
-                              new Container(
-                                  margin: const EdgeInsets.only(right: 36),
-                                  child: new Text('Rp 20,000', style: new TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w400),),
-                              ),
-                            ],
-                          ),
-                        )
-                      ),
-                      new Divider(height: 2,),
-                      new Container(
                           padding: EdgeInsets.only(top: 10, bottom: 10),
                           child: new InkWell(
                             onTap: (){
@@ -146,7 +115,7 @@ class _Profile extends State<Profile> {
                               children: [
                                 new Container(
                                   margin: const EdgeInsets.only(left: 23),
-                                  child: new Text('Bon Cafe :', style: new TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w400),),
+                                  child: new Text('Bon Cafe', style: new TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w400),),
                                 ),
 
                                 new Container(

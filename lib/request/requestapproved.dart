@@ -93,7 +93,8 @@ class _RequestApproved extends State<RequestApproved> {
     return new Scaffold(
       appBar: new AppBar(
         elevation: 1.1,
-        title: new Text('Form Approval'),
+        centerTitle: true,
+        title: new Text('Form Approval',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
       backgroundColor: Colors.white,
       body: message == null ? new Container(

@@ -4,6 +4,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:hsgfamily/domain.dart';
 import 'package:hsgfamily/employe/peraturan.dart';
+import 'package:hsgfamily/employe/suratsp.dart';
 import 'package:hsgfamily/info.dart';
 import 'package:hsgfamily/loading.dart';
 import 'package:hsgfamily/login/loadinglogin.dart';
@@ -63,8 +64,9 @@ class _SuratPeringatan extends State<SuratPeringatan> {
 
     return new Scaffold(
       appBar: new AppBar(
-        elevation: 1.0,
-        title: new Text('Surat Peringatan'),
+        elevation: 0.5,
+        centerTitle: true,
+        title: new Text('Surat Peringatan',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
 
       body: message == null ? new Container(
@@ -83,29 +85,36 @@ class _SuratPeringatan extends State<SuratPeringatan> {
           ),
 
           new Container(
-            height: dataJson.length == 1 ? 75 : 145,
+            height: dataJson.length == 1 ? 85 : 165,
             margin: const EdgeInsets.only(top: 40, left: 10, right: 10),
-            decoration: BoxDecoration (
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(7))
-            ),
             child: new ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: dataJson == null ? 0 : dataJson.length,
               itemBuilder: (context, i) {
                 return new Container(
+                  margin: const EdgeInsets.only(bottom: 5, top: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                  ),
                   child: new ListTile(
                     onTap: (){
-                      if(Platform.isAndroid) {
-                        if(dataJson[i]['keterangan'] == 'Surat Peringatan 1') {
-                          info.openURL(context, messageSP1);
-                        }else if(dataJson[i]['keterangan'] == 'Surat Peringatan 2') {
-                          info.openURL(context, messageSP1);
-                        }
-                      } else {
-                        Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                        new Peraturan(linkPdf: dataJson[i]['keterangan'] == 'Surat Peringatan 1' ? messageSP1 : messageSP2, title: dataJson[i]['keterangan'])));
-                      }
+                      Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
+                        new SP(nama: empName,numberSP: dataJson[i]['keterangan'],jabatan: dataJson[i]['lvl'],tgl: dataJson[i]['tanggal'],)
+                        // new Peraturan(linkPdf: dataJson[i]['keterangan'] == 'Surat Peringatan 1' ? messageSP1 : messageSP2, title: dataJson[i]['keterangan'])
+                      ));
+                      // if(Platform.isAndroid) {
+                      //   if(dataJson[i]['keterangan'] == 'Surat Peringatan 1') {
+                      //     info.openURL(context, messageSP1);
+                      //   }else if(dataJson[i]['keterangan'] == 'Surat Peringatan 2') {
+                      //     info.openURL(context, messageSP1);
+                      //   }
+                      // } else {
+                      //   Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
+                      //       new SP()
+                      //   // new Peraturan(linkPdf: dataJson[i]['keterangan'] == 'Surat Peringatan 1' ? messageSP1 : messageSP2, title: dataJson[i]['keterangan'])
+                      //   ));
+                      // }
                     },
                     title: new Text(dataJson[i]['keterangan'], style: new TextStyle(color: Colors.blue, fontSize: 17),),
                     subtitle: new Text('keluar tanggal : '+dataJson[i]['tanggal']+", jam : "+dataJson[i]['waktu']),

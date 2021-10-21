@@ -58,10 +58,10 @@ class _Friend extends State< Friend> {
 
     return new Scaffold(
       appBar: new AppBar(
-        elevation: 1.1,
+        elevation: 0.5,
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: new Text('Friend',style: new TextStyle(fontWeight: FontWeight.w600),),
+        title: new Text('Friend',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
       ),
 
       body: new GestureDetector(
@@ -108,7 +108,7 @@ class _Friend extends State< Friend> {
                           child: new FlatButton(
                             onPressed: (){
                               Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                              new EmpProfile(gender: dataJson[i]['pict'], empName: dataJson[i]['emp_name'], empId: dataJson[i]['emp_id'], edit: false)));
+                              new EmpProfile(gender: dataJson[i]['pict'], empName: dataJson[i]['emp_name'], empId: dataJson[i]['emp_id'], edit: false, flag: dataJson[i]['emp_id'],)));
                             },
                             child: new Text('View', style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12),),
                             color: new HexColor("#2771A3"),
@@ -141,7 +141,7 @@ class _Friend extends State< Friend> {
                           child: new FlatButton(
                             onPressed: (){
                               Navigator.of(context).push(new MaterialPageRoute(builder: (context) =>
-                              new EmpProfile(gender: dataJson[i]['pict'], empName: dataJson[i]['emp_name'], empId: dataJson[i]['emp_id'], edit: false)));
+                              new EmpProfile(gender: searchJson[i]['pict'], empName: searchJson[i]['emp_name'], empId: searchJson[i]['emp_id'], edit: false)));
                             },
                             child: new Text('View', style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12),),
                             color: new HexColor("#2771A3"),

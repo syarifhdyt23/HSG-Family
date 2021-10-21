@@ -54,8 +54,9 @@ class _ListBOD extends State<ListBOD> {
     return new Scaffold(
         appBar: new AppBar(
           elevation: 0.0,
+          centerTitle: true,
           backgroundColor: new HexColor("#2771A3"),
-          title: new Text('Birthday'),
+          title: new Text('Birthday',style: new TextStyle(fontWeight: FontWeight.w600, color: Colors.black),),
         ),
 
         backgroundColor: Colors.grey[200],
